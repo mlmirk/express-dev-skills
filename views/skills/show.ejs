@@ -4,21 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%=title%></title>
+  <title>Skill</title>
 </head>
 <body>
-  <h1> <%=title%> </h1>
+  <h1>In-depth on a skill</h1>
   <% if(error) { %>
     <h2><%= error %></h2>
+  <% } else { %>
+    <h2>Skill #<%= skill._id %></h2>
+    <h3><%= skill.text %></h3>
+    <p>Skill Level: <%= skill.done ? 'I am an expert' : 'You might call me a noob' %></p>
   <% } %>
-  <ul>
-    <% devolperSkills.forEach(function(skill) { %>
-      <li>
-        <a href="/devSkills/<%=skill._id %>"><%= skill.text %></a>
-          - 
-        <%= skill.done ? 'Expert' : 'noob' %>
-      </li>
-    <% }) %>
-  </ul>
+	<a href="/devSkills">Go back</a>
+</body>
 </body>
 </html>

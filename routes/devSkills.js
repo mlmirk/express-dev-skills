@@ -1,18 +1,14 @@
 import { Router } from 'express'
-import * as devolperSkillsDb from '../data/devolper-skills-db.js'
+import * as skillsCtrl from '../controllers/devSkills.js'
 const router = Router()
 
 /* GET users listing. */
 
-router.get('/', function(req, res) {
-  devolperSkillsDb.find({}, function(error, devolperSkills) {
-    res.render('skills/index', {
-      devolperSkills: devolperSkills,
-      error: error,
-      title : "Some of my skills"
-    })
-  })
-})
+router.get('/', skillsCtrl.index)
+router.get('/:id', skillsCtrl.show)
+
+
+
 export {
   router
 }
