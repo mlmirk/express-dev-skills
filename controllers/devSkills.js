@@ -32,10 +32,17 @@ function create(req,res){
     res.redirect('/devSkills')
   })
 }
+function deleteSkills(req,res){
+  console.log('Deleteing')
+devolperSkillsDb.findByIdAndDelete(req.params.id, function(errror, skill){
+  res.redirect('/devSkills')
+})
+}
 
 export{
   index,
   show,
   newSkills as new,
-  create
+  create,
+  deleteSkills as delete, 
 }
