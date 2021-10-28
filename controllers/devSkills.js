@@ -9,7 +9,8 @@ function index(req, res) {
     res.render('skills/index', {
       devolperSkills: devolperSkills,
       error: error,
-      title : "Some of my skills"
+      title : "Some of my skills",
+      time: req.time
     })
   })
 }
@@ -22,9 +23,19 @@ devolperSkillsDb.findById(req.params.id, function(error, skill){
   })
 })
 }
+function newSkills(req,res){
+  res.render('skills/new')
+}
 
+function create(req,res){
+  devolperSkillsDb.create(req.body, function(erros,skill){
+    res.redirect('/devSkills')
+  })
+}
 
 export{
   index,
-  show
+  show,
+  newSkills as new,
+  create
 }
